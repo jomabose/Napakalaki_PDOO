@@ -5,4 +5,4 @@ Asignatura PDOO UGR.
 
 2DGIIM Daniel Bolaños Martínez y José María Borrás Serrano
 
-# ![PDOO](Recursos/Napakalaki.jpg)
+# ![PDOO](Recursos/Napakalaki.png)
