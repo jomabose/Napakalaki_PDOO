@@ -65,49 +65,49 @@ end
 prize = Prize.new(2,1)
 badConsequence = 
   BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta",
-  1,[TreasureKind::ARMOR], [TreasureKind::ARMOR])
+  0,[TreasureKind::ARMOR], [TreasureKind::ARMOR])
 @@monsters<<Monster.new("Byakhees de bonanza", 8, badConsequence, prize)
 
 #Monstruo2
 prize = Prize.new(1,1)
 badConsequence = 
   BadConsequence.newLevelSpecificTreasures("Embotados con el lindo primigenio te descartas de tu casco visible",
-  1,[TreasureKind::HELMET], Array.new)
+  0,[TreasureKind::HELMET], Array.new)
 @@monsters<<Monster.new("Tenochtitlan", 2, badConsequence, prize)
 
 #Monstruo3
 prize = Prize.new(1,1)
 badConsequence = 
-  BadConsequence.newLevelSpecificTreasures("El primordial bostezo contagioso.Pierdes el calzado visible",
-  1,[TreasureKind::SHOES], Array.new)
+  BadConsequence.newLevelSpecificTreasures("El primordial bostezo contagioso. Pierdes el calzado visible",
+  0,[TreasureKind::SHOES], Array.new)
 @@monsters<<Monster.new("El sopor de Dunwich", 2, badConsequence, prize)
 
 #Monstruo4
 prize = Prize.new(4,1)
 badConsequence = 
-  BadConsequence.newLevelNumberOfTreasures("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo.Descarta 1 mano visible y 1 mano oculta",
-  1,1,1)
+  BadConsequence.newLevelSpecificTreasures("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta",
+  0,[TreasureKind::ONEHAND],[TreasureKind::ONEHAND])
 @@monsters<<Monster.new("Demonios de Magaluf", 2, badConsequence, prize)
 
 #Monstruo5
 prize = Prize.new(3,1)
 badConsequence = 
   BadConsequence.newLevelNumberOfTreasures("Pierdes todos tus tesoros visibles",
-  1,9999999, 0)
+  0, 9999999, 0)
 @@monsters<<Monster.new("El gorrón en el umbral", 13, badConsequence, prize)
 
 #Monstruo6
 prize = Prize.new(2,1)
 badConsequence = 
   BadConsequence.newLevelSpecificTreasures("Pierdes la armadura visible",
-  1,[TreasureKind::ARMOR],Array.new)
+  0,[TreasureKind::ARMOR], Array.new)
 @@monsters<<Monster.new("H.P. Munchcraft", 6, badConsequence, prize)
 
 #Monstruo7
 prize = Prize.new(1,1)
 badConsequence = 
-  BadConsequence.newLevelSpecificTreasures("Sientes bichos bajo la ropa.Descarta la armadura visible",
-  1,[TreasureKind::ARMOR],Array.new)
+  BadConsequence.newLevelSpecificTreasures("Sientes bichos bajo la ropa. Descarta la armadura visible",
+  0,[TreasureKind::ARMOR], Array.new)
 @@monsters<<Monster.new("Necrófago", 13, badConsequence, prize)
 
 #Monstruo8
@@ -134,14 +134,14 @@ badConsequence =
 prize = Prize.new(2,1)
 badConsequence = 
   BadConsequence.newLevelNumberOfTreasures("Pierdes 2 niveles y 2 tesoros ocultos",
-  1,2,2)
+  2,0,2)
 @@monsters<<Monster.new("Semillas Cthulhu", 4, badConsequence, prize)
 
 #Monstruo12
 prize = Prize.new(2,1)
 badConsequence = 
   BadConsequence.newLevelSpecificTreasures("Te intentas escaquear. Pierdes una mano visible",
-  1,[TreasureKind::ONEHAND],Array.new)
+  0,[TreasureKind::ONEHAND],Array.new)
 @@monsters<<Monster.new("Dameargo", 1, badConsequence, prize)
 
 #Monstruo13
@@ -174,7 +174,7 @@ badConsequence =
 prize = Prize.new(1,1)
 badConsequence = 
   BadConsequence.newLevelSpecificTreasures("Te asusta en la noche. Pierdes un casco visible",
-  1,[TreasureKind::HELMET],Array.new)
+  0,[TreasureKind::HELMET],Array.new)
 @@monsters<<Monster.new("El espía sordo", 5, badConsequence, prize)
 
 #Monstruo18
@@ -191,4 +191,4 @@ badConsequence =
   3,[TreasureKind::BOTHHANDS,TreasureKind::ONEHAND,TreasureKind::ONEHAND],Array.new)
 @@monsters<<Monster.new("Bicéfalo", 21, badConsequence, prize)
 
-puts LoseTreasureSpecific(:helmet)
+puts @@monsters

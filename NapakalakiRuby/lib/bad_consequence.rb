@@ -48,9 +48,19 @@ class BadConsequence
   attr_reader :specificHiddenTreasures
   
   def to_s
-    cadena = "#{@text} \nLevels_Down = #{@levels}"
-    cadena += "\nRandom_Visible_Treasures_Down = #{@nVisibleTreasures} / Random_Hidden_Treasures_Down = #{@nHiddenTreasures}"
-    cadena += "\nDeath = #{@death}"
-    cadena += "\nSpecific_Visible_Treasures_Down = #{@specificVisibleTreasures} / Specific_Hidden_Treasures_Down = #{@specificHiddenTreasures}"   
+    cadena = "#{@text}" 
+    if @death
+      cadena += "\nDeath = #{@death}"
+    else
+      if @levels != 0
+        cadena += "\nLevels_Down = #{@levels}"
+      end
+      if @nVisibleTreasures != -1 && (@nVisibleTreasures != 0 || @nHiddenTreasures !=0)
+        cadena += "\nRandom_Visible_Treasures_Down = #{@nVisibleTreasures} / Random_Hidden_Treasures_Down = #{@nHiddenTreasures}"
+      end
+      if @nVisibleTreasures == -1
+         cadena += "\nSpecific_Visible_Treasures_Down = #{@specificVisibleTreasures} / Specific_Hidden_Treasures_Down = #{@specificHiddenTreasures}"
+       end
+    end 
   end
 end
