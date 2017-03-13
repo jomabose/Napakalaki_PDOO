@@ -10,16 +10,12 @@ package napakalaki;
  * @author danibolanos
  */
 public class Dice {
+    private static final Dice instance = new Dice();
     
-    private Dice() {
-    }
+    private Dice() { }
     
     public static Dice getInstance() {
-        return DiceHolder.INSTANCE;
-    }
-    
-    private static class DiceHolder {
-        private static final Dice INSTANCE = null;
+        return instance;
     }
     
     public int nextNumber(){

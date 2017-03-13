@@ -147,8 +147,7 @@ badConsequence =
 #Monstruo13
 prize = Prize.new(2,1)
 badConsequence = 
-  BadConsequence.newLevelNumberOfTreasures("Da mucho asquito. Pierdes 3 niveles",
-  3,0,0)
+  BadConsequence.newLevelNumberOfTreasures("Da mucho asquito. Pierdes 3 niveles",3,0,0)
 @@monsters<<Monster.new("Pollipólipo volante", 3, badConsequence, prize)
 
 #Monstruo14

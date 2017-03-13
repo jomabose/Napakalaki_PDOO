@@ -10,21 +10,18 @@ package napakalaki;
  * @author danibolanos
  */
 public class CardDealer {
+    private static final CardDealer instance = new CardDealer();
+    
     private Treasure unusedTreasures;
     private Treasure usedTreasures;
     private Monster unusedMonsters;
     private Monster usedMonsters;
     
     
-    private CardDealer() {
-    }
+    private CardDealer() { }
     
     public static CardDealer getInstance() {
-        return CardDealerHolder.INSTANCE;
-    }
-    
-    private static class CardDealerHolder {
-        private static final CardDealer INSTANCE = null;
+        return instance;
     }
     
     private void initTreasureCardDeck(){
