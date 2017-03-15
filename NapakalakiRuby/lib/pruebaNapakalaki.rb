@@ -7,13 +7,14 @@ require_relative "prize"
 require_relative "treasure_kind"
 require_relative "bad_consequence"
 require_relative "monster"
+require_relative "treasure"
 
 @@monsters = Array.new
 
 def CombatLevelMoreThan10
         tmp = Array.new
         @@monsters.each do |elemento|
-          if elemento.level > 10
+          if elemento.combatLevel > 10
             tmp << elemento
           end
         end
@@ -24,9 +25,9 @@ def BadConsequenceOnlyLevel
         tmp = Array.new
         @@monsters.each do |elemento|
             aniadir=true;
-            if elemento.bc.death
+            if elemento.badConsequence.death
                 aniadir=false;
-            elsif elemento.bc.nVisibleTreasures !=0 || elemento.bc.nHiddenTreasures != 0
+            elsif elemento.badConsequence.nVisibleTreasures !=0 || elemento.badConsequence.nHiddenTreasures != 0
                     aniadir=false  
             end
             if aniadir
@@ -39,7 +40,7 @@ end
 def PrizeLevelMoreThan1
         tmp = Array.new
         @@monsters.each do |elemento|
-            if elemento.prize.level > 1
+            if elemento.getLevelsGained() > 1
                tmp << elemento
             end
         end      
@@ -49,7 +50,7 @@ end
 def LoseTreasureSpecific(kind)
         tmp = Array.new
         @@monsters.each do |elemento|
-          aux = Array.new(elemento.bc.specificVisibleTreasures+elemento.bc.specificHiddenTreasures)
+          aux = Array.new(elemento.badConsequence.specificVisibleTreasures+elemento.badConsequence.specificHiddenTreasures)
           pasa = false
               aux.each do |elemento2|
               if elemento2 == kind && !pasa
@@ -190,4 +191,5 @@ badConsequence =
   3,[TreasureKind::BOTHHANDS,TreasureKind::ONEHAND,TreasureKind::ONEHAND],Array.new)
 @@monsters<<Monster.new("Bicéfalo", 21, badConsequence, prize)
 
-puts @@monsters
+puts @@monsters.at(0)
+

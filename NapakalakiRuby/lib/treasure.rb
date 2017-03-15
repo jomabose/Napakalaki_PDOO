@@ -3,19 +3,19 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-class Prize
-  def initialize(t, l)
-    @treasures = t
-    @levels = l
+class Treasure
+  def initialize(n, bonus, t)
+    @name = n
+    @bonus = bonus
+    @type = t
   end
   
-  attr_reader :treasures
-  attr_reader :levels
-  
-  #NO UML
+  attr_reader :name
+  attr_reader :bonus
+  attr_reader :type
   
   def to_s
-    cadena = "Treasures = #{@treasures} / Levels = #{@levels}"
-    return cadena 
+    "Numeritos  #{@name} , #{@bonus}, #{@type}"
   end
-end 
+  
+end

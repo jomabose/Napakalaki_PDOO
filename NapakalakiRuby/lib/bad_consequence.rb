@@ -4,49 +4,54 @@
 # and open the template in the editor.
 
 class BadConsequence
-=begin
-  def initialize()
-    @text = ""
-    @levels = 0
-    @nVisibleTreasures = 0
-    @nHiddenTreasures = 0
-    @death = false
-    @specificVisibleTreasures = Array.new
-    @specificHiddenTreasures = Array.new
-  end
-=end
   
-  def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,
-      someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
-    @text = aText
-    @levels = someLevels
-    @nVisibleTreasures = someVisibleTreasures
-    @nHiddenTreasures = someHiddenTreasures
+  MAXTREASURES = 10
+  
+  def initialize(t, l, nVisible, nHidden, v, h, death)
+    @text = t
+    @levels = l
+    @nVisibleTreasures = nVisible
+    @nHiddenTreasures = nHidden
     @death = death
-    @specificVisibleTreasures = someSpecificVisibleTreasures
-    @specificHiddenTreasures = someSpecificHiddenTreasures
+    @specificVisibleTreasures = v
+    @specificHiddenTreasures = h
   end
   
-  def BadConsequence.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
-    BadConsequence.new(aText, someLevels, someVisibleTreasures, someHiddenTreasures, Array.new, Array.new, false)
+  def isEmpty
+    #No se sabe
   end
-  
-  def BadConsequence.newLevelSpecificTreasures (aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
-    BadConsequence.new(aText, someLevels, -1, -1, someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
-  end  
-    
-  def BadConsequence.newDeath (aText)
-    BadConsequence.new(aText, 9999999, 9999999, 9999999, Array.new, Array.new, true)
-  end  
-    
-  attr_reader :text
+
   attr_reader :levels
   attr_reader :nVisibleTreasures
   attr_reader :nHiddenTreasures
-  attr_reader :death
-  attr_reader :specificVisibleTreasures
   attr_reader :specificHiddenTreasures
+  attr_reader :specificVisibleTreasures
   
+  def substractVisibleTreasure(t)
+    #No se sabe
+  end
+  
+  def substractHiddenTreasure(t)
+    #No se sabe
+  end
+
+  def BadConsequence.newLevelNumberOfTreasures(t, l, nVisible, nHidden)
+    BadConsequence.new(t, l, nVisible, nHidden, Array.new, Array.new, false)
+  end
+  
+  def BadConsequence.newLevelSpecificTreasures (t, l, v, h)
+    BadConsequence.new(t, l, -1, -1, v, h, false)
+  end  
+    
+  def BadConsequence.newDeath (t)
+    BadConsequence.new(t, 9999999, 9999999, 9999999, Array.new, Array.new, true)
+  end  
+  
+  def adjustToFitTreasureLists(v,h)
+    #No se sabe
+  end
+
+  # NO UML  
 
   def to_s
     cadena = "#{@text}" 
@@ -62,15 +67,9 @@ class BadConsequence
          cadena += "\nRandom_Visible_Treasures_Down = #{@nVisibleTreasures} / Random_Hidden_Treasures_Down = #{@nHiddenTreasures}"
       end
     end 
+    return cadena
   end
+  
+  attr_reader :death
 
-=begin
-  def to_s
-    cadena = "#{@text}" 
-    cadena += "\nDeath = #{@death}" 
-    cadena += "\nLevels_Down = #{@levels}" 
-    cadena += "\nSpecific_Visible_Treasures_Down = #{@specificVisibleTreasures} / Specific_Hidden_Treasures_Down = #{@specificHiddenTreasures}"
-    cadena += "\nRandom_Visible_Treasures_Down = #{@nVisibleTreasures} / Random_Hidden_Treasures_Down = #{@nHiddenTreasures}"
-  end
-=end
 end

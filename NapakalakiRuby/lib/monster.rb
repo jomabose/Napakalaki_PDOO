@@ -4,21 +4,32 @@
 # and open the template in the editor.
 
 class Monster
-  def initialize(name, level, bc, prize)
-    @name = name
-    @level = level
-    @bc = bc
-    @prize = prize
+  def initialize(n, l, b, p)
+    @name = n
+    @combatLevel = l
+    @badConsequence = b
+    @prize = p
   end
   
   attr_reader :name
-  attr_reader :level
-  attr_reader :bc
-  attr_reader :prize
+  attr_reader :combatLevel
+  attr_reader :badConsequence
+  
+  def getLevelsGained
+    return @prize.levels
+  end
+  
+  def getTreasuresGained
+    return @prize.treasures
+  end
+  
+  #NO UML
   
   def to_s
-    cadena = "Name: #{@name} \nCombat_Level: #{@level}"
-    cadena += "\nPrize: #{@prize} \nBad_Consequence: #{@bc}"
+    cadena = "Name: #{@name} \nCombat_Level: #{@combatLevel}"
+    cadena += "\nPrize: #{@prize} \nBad_Consequence: #{@badConsequence}"
     cadena += "\n\n"
+    return cadena
   end
+  
 end
