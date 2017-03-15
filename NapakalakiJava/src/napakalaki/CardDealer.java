@@ -20,10 +20,6 @@ public class CardDealer {
     
     private CardDealer() { }
     
-    public static CardDealer getInstance() {
-        return instance;
-    }
-    
     private void initTreasureCardDeck(){
      //No se sabe todavía  
     }
@@ -38,6 +34,10 @@ public class CardDealer {
     
     private void shuffleMonsters(){
         //No se sabe todavía
+    }
+    
+    public static CardDealer getInstance() {
+        return instance;
     }
     
     public Treasure nextTreasure(){

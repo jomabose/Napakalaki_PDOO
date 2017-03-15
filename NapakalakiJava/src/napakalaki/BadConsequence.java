@@ -23,10 +23,41 @@ public class BadConsequence {
     private ArrayList<TreasureKind> specificVisibleTreasures = new ArrayList();
     private ArrayList<TreasureKind> specificHiddenTreasures = new ArrayList();
     
+    public boolean isEmpty(){
+     //No se sabe todavía
+    }
     
-    public BadConsequence(String text, int levels, int nVisible, int nHidden){
-        this.text = text;
-        this.levels = levels;
+    public int getLevels(){
+        return levels;
+    }
+    
+    public int getNVisibleTreasures(){
+        return nVisibleTreasures;
+    }
+    
+    public int getNHiddenTreasures(){
+        return nHiddenTreasures;
+    }
+    
+    public ArrayList getSpecificHiddenTreasures(){
+        return specificHiddenTreasures;
+    }
+    
+    public ArrayList getSpecificVisibleTreasures(){
+        return specificVisibleTreasures;
+    }
+    
+    public void substractVisibleTreasure(Treasure t){
+        //No se sabe todavía
+    }
+    
+    public void substractHiddenTreasure(Treasure t){
+        //No se sabe todavía
+    }
+    
+    public BadConsequence(String t, int l, int nVisible, int nHidden){
+        text = t;
+        levels = l;
         nVisibleTreasures = nVisible;
         nHiddenTreasures = nHidden;
         death = false; 
@@ -34,8 +65,20 @@ public class BadConsequence {
         specificHiddenTreasures = new ArrayList();
     }
     
-    public BadConsequence(String text, boolean death){
-        this.text = text;
+    public BadConsequence(String t, int l, ArrayList<TreasureKind> v,
+        ArrayList<TreasureKind> h){
+        text = t;
+        levels = l;
+        specificVisibleTreasures = v;
+        specificHiddenTreasures = h;
+        death = false;
+        //-1 Indica que el mal rollo afecta solo a tesoros específicos
+        nVisibleTreasures = -1;
+        nHiddenTreasures = -1;
+    }
+    
+    public BadConsequence(String t, boolean death){
+        text = t;
         this.death = death;     
         levels = Integer.MAX_VALUE;
         nVisibleTreasures = Integer.MAX_VALUE;
@@ -43,42 +86,12 @@ public class BadConsequence {
         specificVisibleTreasures = new ArrayList();
         specificHiddenTreasures = new ArrayList();
     }
-    
-    public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible,
-           ArrayList<TreasureKind> tHidden){
-        this.text = text;
-        this.levels = levels;
-        specificVisibleTreasures = tVisible;
-        specificHiddenTreasures = tHidden;
-        death = false;
-        //-1 Indica que el mal rollo afecta solo a tesoros específicos
-        nVisibleTreasures = -1;
-        nHiddenTreasures = -1;
+ 
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
+      //No se sabe todavía
     }
     
-    public String getText(){
-        return text;
-    }
-    
-    public int getLevels(){
-        return levels;
-    }
-    
-    public int getNumberVisible(){
-        return nVisibleTreasures;
-    }
-    
-    public int getNumberHidden(){
-        return nHiddenTreasures;
-    }
-    
-    public ArrayList getSpecificVisible(){
-        return specificVisibleTreasures;
-    }
-    
-    public ArrayList getSpecificHidden(){
-        return specificHiddenTreasures;
-    }
+    //NO UML
     
     public boolean getDeath(){
         return death;
@@ -95,22 +108,9 @@ public class BadConsequence {
                cadena += "\nRandom_Visible_Treasures_Down = " + Integer.toString(nVisibleTreasures) 
                + " / Random_Hidden_Treasures_Down = " + Integer.toString(nHiddenTreasures);
            if(nVisibleTreasures == -1)
-               cadena += "\nSpecific_Visible_Treasures_Down = " + getSpecificVisible()
-               + " / Specific_Hidden_Treasures_Down = " + getSpecificHidden();
+               cadena += "\nSpecific_Visible_Treasures_Down = " + getSpecificVisibleTreasures()
+               + " / Specific_Hidden_Treasures_Down = " + getSpecificHiddenTreasures();
            }
         return cadena;
     }
-    
-    public boolean isEmpty(){
-        //No se sabe todavía
-    }
-    
-    public void substractVisibleTreasure(Treasure t){
-        //No se sabe todavía
-    }
-    
-    public void substractHiddenTreasure(Treasure t){
-        //No se sabe todavía
-    }
-    
 }

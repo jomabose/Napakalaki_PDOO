@@ -17,11 +17,11 @@ public class Monster {
     private Prize prize;
     private BadConsequence badConsequence;
     
-    public Monster(String name, int level, BadConsequence bc, Prize prize){
-        this.name = name;
-        combatLevel = level;
-        badConsequence = bc;
-        this.prize = prize;
+    public Monster(String n, int l, BadConsequence b, Prize p){
+        name = n;
+        combatLevel = l;
+        badConsequence = b;
+        prize = p;
     }
     
     public String getName(){
@@ -32,12 +32,22 @@ public class Monster {
         return combatLevel;
     }
     
-    public Prize getPrize(){
-        return prize;
-    }
-    
     public BadConsequence getBadConsequence(){
         return badConsequence;
+    }
+    
+    public int getLevelsGained(){
+        return prize.getLevels();
+    }
+    
+    public int getTreasuresGained(){
+        return prize.getTreasures();
+    }
+    
+    //NO UML
+    
+    public Prize getPrize(){
+        return prize;
     }
     
     public String toString(){

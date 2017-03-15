@@ -30,8 +30,8 @@ public class PruebaNapakalaki {
             if(monstruos.get(i).getBadConsequence().getDeath())
                 aniadir=false;
             else{
-                if(monstruos.get(i).getBadConsequence().getNumberVisible() !=0 
-                   || monstruos.get(i).getBadConsequence().getNumberHidden() != 0)
+                if(monstruos.get(i).getBadConsequence().getNVisibleTreasures() !=0 
+                        || monstruos.get(i).getBadConsequence().getNHiddenTreasures() != 0)
                     aniadir=false;
             }
             if(aniadir)
@@ -52,8 +52,8 @@ public class PruebaNapakalaki {
     static ArrayList LoseTreasureSpecific(TreasureKind kind){
         ArrayList<Monster> tmp = new ArrayList();
         for(int i=0; i < monstruos.size(); i++){
-            if(monstruos.get(i).getBadConsequence().getSpecificHidden().contains(kind)
-               || monstruos.get(i).getBadConsequence().getSpecificVisible().contains(kind))
+            if(monstruos.get(i).getBadConsequence().getSpecificHiddenTreasures().contains(kind)
+               || monstruos.get(i).getBadConsequence().getSpecificVisibleTreasures().contains(kind))
                tmp.add(monstruos.get(i));
         }
         return tmp;
