@@ -3,14 +3,21 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+module NapakalakiGame
+
 class Prize
   def initialize(t, l)
     @treasures = t
     @levels = l
   end
   
-  attr_reader :treasures
-  attr_reader :levels
+  def getTreasures
+    return @treasures
+  end
+  
+  def getLevels
+    return @levels
+  end
   
   #NO UML
   
@@ -19,3 +26,4 @@ class Prize
     return cadena 
   end
 end 
+end

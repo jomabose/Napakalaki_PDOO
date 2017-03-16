@@ -3,6 +3,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+module NapakalakiGame
+
 class BadConsequence
   
   MAXTREASURES = 10
@@ -20,12 +22,26 @@ class BadConsequence
   def isEmpty
     #No se sabe
   end
-
-  attr_reader :levels
-  attr_reader :nVisibleTreasures
-  attr_reader :nHiddenTreasures
-  attr_reader :specificHiddenTreasures
-  attr_reader :specificVisibleTreasures
+  
+  def getLevels
+    return @levels
+  end
+  
+  def getNVisibleTreasures
+    return @nVisibleTreasures
+  end
+  
+  def getNHiddenTreasures
+    return @nHiddenTreasures
+  end
+  
+  def getSpecificHiddenTreasures
+    return @specificHiddenTreasures
+  end
+  
+  def getSpecificVisibleTreasures
+    return @specificVisibleTreasures
+  end
   
   def substractVisibleTreasure(t)
     #No se sabe
@@ -72,4 +88,5 @@ class BadConsequence
   
   attr_reader :death
 
+end
 end

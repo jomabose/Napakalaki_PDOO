@@ -3,6 +3,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+module NapakalakiGame
+
 class Player
   
   MAXLEVEL = 10
@@ -11,7 +13,7 @@ class Player
     @name = name
     @level = 1
     @dead = true    
-    @pendingBadConsequence = badConsequence.new
+    @pendingBadConsequence = nil
     @visibleTreasures = Array.new
     @hiddenTreasures = Array.new
   end
@@ -113,4 +115,5 @@ class Player
   def discardAllTreasures
     #No se sabe
   end
+end
 end

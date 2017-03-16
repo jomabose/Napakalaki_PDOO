@@ -3,8 +3,12 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+module NapakalakiGame
+
 module TreasureKind
     WINGAME = :wingame
     WIN = :win
     LOSE = :lose
+end
+
 end

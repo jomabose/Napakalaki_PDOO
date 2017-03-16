@@ -3,6 +3,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+module NapakalakiGame
+
 require 'singleton'
 
 class Napakalaki
@@ -65,4 +67,5 @@ class Napakalaki
     #No se sabe
   end
   
+end
 end

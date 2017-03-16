@@ -3,6 +3,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+module NapakalakiGame
+
 class Monster
   def initialize(n, l, b, p)
     @name = n
@@ -11,16 +13,24 @@ class Monster
     @prize = p
   end
   
-  attr_reader :name
-  attr_reader :combatLevel
-  attr_reader :badConsequence
+  def getName
+    return @name
+  end
+  
+  def getCombatLevel
+    return @combatLevel
+  end
+  
+  def getBadConsequence
+    return @badConsequence
+  end
   
   def getLevelsGained
-    return @prize.levels
+    return @prize.getLevels
   end
   
   def getTreasuresGained
-    return @prize.treasures
+    return @prize.getTreasures
   end
   
   #NO UML
@@ -32,4 +42,5 @@ class Monster
     return cadena
   end
   
+end
 end

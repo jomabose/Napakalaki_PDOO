@@ -3,6 +3,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+module NapakalakiGame
+
 require 'singleton'
 
 class Dice
@@ -11,4 +13,5 @@ class Dice
   def nextNumber
     return rand(6)+1
   end
+end
 end

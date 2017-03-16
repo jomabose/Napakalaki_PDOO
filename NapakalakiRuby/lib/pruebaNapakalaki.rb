@@ -3,31 +3,35 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-require_relative "prize"
-require_relative "treasure_kind"
-require_relative "bad_consequence"
-require_relative "monster"
-require_relative "treasure"
+require_relative 'treasure_kind'
+require_relative 'prize'
+require_relative 'bad_consequence'
+require_relative 'monster'
+require_relative 'dice'
 
-@@monsters = Array.new
+class PruebaNapakalaki
+  
+include NapakalakiGame
 
-def CombatLevelMoreThan10
+ @@monsters = Array.new
+
+def self.CombatLevelMoreThan10
         tmp = Array.new
         @@monsters.each do |elemento|
-          if elemento.combatLevel > 10
+          if elemento.getCombatLevel > 10
             tmp << elemento
           end
         end
     return tmp
 end
 
-def BadConsequenceOnlyLevel
+def self.BadConsequenceOnlyLevel
         tmp = Array.new
         @@monsters.each do |elemento|
             aniadir=true;
-            if elemento.badConsequence.death
+            if elemento.getBadConsequence.death
                 aniadir=false;
-            elsif elemento.badConsequence.nVisibleTreasures !=0 || elemento.badConsequence.nHiddenTreasures != 0
+              elsif elemento.getBadConsequence.getNVisibleTreasures !=0 || elemento.getBadConsequence.getNHiddenTreasures != 0
                     aniadir=false  
             end
             if aniadir
@@ -37,29 +41,35 @@ def BadConsequenceOnlyLevel
         return tmp
 end
 
-def PrizeLevelMoreThan1
+def self.PrizeLevelMoreThan1
         tmp = Array.new
         @@monsters.each do |elemento|
-            if elemento.getLevelsGained() > 1
+            if elemento.getLevelsGained > 1
                tmp << elemento
             end
         end      
         return tmp;
 end
 
-def LoseTreasureSpecific(kind)
-        tmp = Array.new
-        @@monsters.each do |elemento|
-          aux = Array.new(elemento.badConsequence.specificVisibleTreasures+elemento.badConsequence.specificHiddenTreasures)
-          pasa = false
-              aux.each do |elemento2|
-              if elemento2 == kind && !pasa
-              tmp << elemento
-              pasa = true
-              end
-            end
+def self.LoseTreasureSpecific(treasure)
+        monstruosT = Array.new
+        @@monsters.each do |monstruo|
+        added = false
+        treasuresList = Array.new
+        monstruo.getBadConsequence.getSpecificVisibleTreasures.each do |visible|
+        treasuresList << visible
         end
-        return tmp
+        monstruo.getBadConsequence.getSpecificHiddenTreasures.each do |hidden|
+        treasuresList << hidden
+        end
+        treasuresList.each do |tesoros|
+           if (tesoros == treasure and !added)
+              monstruosT << monstruo
+              added = true
+           end
+        end
+        end
+        return monstruosT
 end
 
 #Monstruo1
@@ -80,7 +90,7 @@ badConsequence =
 prize = Prize.new(1,1)
 badConsequence = 
   BadConsequence.newLevelSpecificTreasures("El primordial bostezo contagioso. Pierdes el calzado visible",
-  0,[TreasureKind::SHOES], Array.new)
+  0,[TreasureKind::SHOE], Array.new)
 @@monsters<<Monster.new("El sopor de Dunwich", 2, badConsequence, prize)
 
 #Monstruo4
@@ -191,5 +201,6 @@ badConsequence =
   3,[TreasureKind::BOTHHANDS,TreasureKind::ONEHAND,TreasureKind::ONEHAND],Array.new)
 @@monsters<<Monster.new("Bicéfalo", 21, badConsequence, prize)
 
-puts @@monsters.at(0)
+puts PruebaNapakalaki.LoseTreasureSpecific(TreasureKind::HELMET)
 
+end
