@@ -19,6 +19,6 @@ public class Dice {
     }
     
     public int nextNumber(){
-        //No se sabe todavía
+        //return srand(6)+1;
     }
 }

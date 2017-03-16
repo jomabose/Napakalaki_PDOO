@@ -20,11 +20,14 @@ public class BadConsequence {
     private int nVisibleTreasures;
     private int nHiddenTreasures;
     private boolean death;
-    private ArrayList<TreasureKind> specificVisibleTreasures = new ArrayList();
-    private ArrayList<TreasureKind> specificHiddenTreasures = new ArrayList();
+    private ArrayList<TreasureKind> specificVisibleTreasures;
+    private ArrayList<TreasureKind> specificHiddenTreasures;
     
     public boolean isEmpty(){
-     //No se sabe todavía
+       boolean vacio=false;
+       if (nVisibleTreasures==0 && nHiddenTreasures==0 && specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty())
+           vacio=true;
+       return vacio;
     }
     
     public int getLevels(){

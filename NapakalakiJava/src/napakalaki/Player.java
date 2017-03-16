@@ -5,6 +5,7 @@
  */
 package napakalaki;
 
+import java.util.*;
 /**
  *
  * @author danibolanos
@@ -17,15 +18,15 @@ public class Player {
     private boolean dead;
     private boolean canISteal;
     private Player enemy;
-    private Treasure visibleTreasures;
-    private Treasure hiddenTreasures;
+    private ArrayList<Treasure> visibleTreasures;
+    private ArrayList<Treasure> hiddenTreasures;
     private BadConsequence pendingBadConsequence;
     
     private void bringToLife(){
-        //No se sabe
+        dead = false;
     }
     private int getCombatLevel(){
-        //No se sabe
+        return level + visibleTreasures.getBonus();
     }
     private void incrementLevels(int l){
         level+=l;
@@ -50,9 +51,85 @@ public class Player {
         //No se sabe
     }
     private int howManyVisibleTreasures(TreasureKind tKind){
-        //No se sabe
+        int cuantos=0;
+        for(int i=0; i<visibleTreasures.size();++i)
+            if(visibleTreasures.get(i).getType()==tKind)
+                cuantos++;
+        return cuantos;
     }
     private void dieIfNoTreasures(){
+        if(visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
+           dead = true;
+    }
+    private Treasure giveMeATreasure(){
+        //No se sabe
+    }
+    private boolean canYouGiveMeATreasure(){
+        boolean puedo=true;
+        if(visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
+            puedo=false;
+        return puedo;
+        
+    }
+    private void haveStolen(){
+        canISteal=false;
+    }
+    public Player(String name){
+        this.name=name;
+        level=1;
+        dead=true;
+        canISteal = true;
+        visibleTreasures = new ArrayList();
+        hiddenTreasures = new ArrayList();
+        //enemy
+        //pendingBadConsequence
+    }
+    public String getName(){
+        return name;
+    }
+    public boolean isDead(){
+        return dead;
+    }
+    public ArrayList<Treasure> getHiddenTreasures(){
+        //No se sabe
+    }
+    public ArrayList<Treasure> getVisibleTreasures(){
+        //No se sabe
+    }
+    public CombatResult combat(Monster m){
+        //No se sabe
+    }
+    public void makeTreasureVisible(Treasure t){
+        //No se sabe
+    }
+    public void discardVisibleTreasure(Treasure t){
+        //No se sabe
+    }
+    public void discardHiddenTreasure(Treasure t){
+        //No se sabe
+    }
+    public boolean validState(){
+        boolean condicion = false;
+        if (pendingBadConsequence.isEmpty() && hiddenTreasures.size()<5)
+            condicion = true;
+        return condicion;
+    }
+    public void initTreasures(){
+        //No se sabe
+    }
+    public int getLevels(){
+        return level;
+    }
+    public Treasure stealTreasure(){
+        //No se sabe
+    }
+    public void setEnemy(Player enemy){
+        this.enemy=enemy;
+    }
+    public boolean canISteal(){
+        return canISteal;
+    }
+    public void discardAllTreasures(){
         //No se sabe
     }
 }
