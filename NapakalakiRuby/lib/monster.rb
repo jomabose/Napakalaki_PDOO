@@ -33,14 +33,12 @@ class Monster
     return @prize.getTreasures
   end
   
-  #NO UML
-  
   def to_s
     cadena = "Name: #{@name} \nCombat_Level: #{@combatLevel}"
     cadena += "\nPrize: #{@prize} \nBad_Consequence: #{@badConsequence}"
     cadena += "\n\n"
     return cadena
   end
-  
 end
+
 end

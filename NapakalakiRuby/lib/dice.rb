@@ -9,9 +9,13 @@ require 'singleton'
 
 class Dice
   include Singleton
+  
+  def initialize
+  end
 
   def nextNumber
     return rand(6)+1
   end
 end
+
 end

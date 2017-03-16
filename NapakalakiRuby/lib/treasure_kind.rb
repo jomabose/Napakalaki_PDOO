@@ -12,4 +12,5 @@ module TreasureKind
     HELMET = :helmet
     SHOE = :shoe
 end
+
 end

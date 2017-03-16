@@ -7,7 +7,8 @@ require_relative 'treasure_kind'
 require_relative 'prize'
 require_relative 'bad_consequence'
 require_relative 'monster'
-require_relative 'dice'
+require_relative 'player'
+require_relative 'card_dealer'
 
 class PruebaNapakalaki
   

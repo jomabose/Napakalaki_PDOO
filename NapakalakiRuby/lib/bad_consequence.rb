@@ -20,7 +20,11 @@ class BadConsequence
   end
   
   def isEmpty
-    #No se sabe
+    vacio=false
+    if @nVisibleTreasures==0 && @nHiddenTreasures==0 && @specificVisibleTreasures.empty? && @specificHiddenTreasures.empty?
+      vacio=true
+    end
+    return vacio
   end
   
   def getLevels
@@ -65,9 +69,7 @@ class BadConsequence
   
   def adjustToFitTreasureLists(v,h)
     #No se sabe
-  end
-
-  # NO UML  
+  end 
 
   def to_s
     cadena = "#{@text}" 

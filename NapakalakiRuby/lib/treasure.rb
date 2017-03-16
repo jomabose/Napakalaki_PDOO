@@ -12,10 +12,24 @@ class Treasure
     @type = t
   end
   
-  attr_reader :name
-  attr_reader :bonus
-  attr_reader :type
+  def getName
+    return @name
+  end
   
+  def getBonus
+    return @bonus
+  end
+  
+  def getType
+    return @type
+  end
+  
+  def to_s
+    cadena = "#{@name}"
+    cadena += "\nBonus: #{@bonus}"
+    cadena += "\nTipo: #{@type}"
+    return cadena;
+  end
 end
 
 end

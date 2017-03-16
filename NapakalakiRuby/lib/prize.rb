@@ -19,11 +19,10 @@ class Prize
     return @levels
   end
   
-  #NO UML
-  
   def to_s
     cadena = "Treasures = #{@treasures} / Levels = #{@levels}"
     return cadena 
   end
 end 
+
 end

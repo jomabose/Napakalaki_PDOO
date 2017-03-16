@@ -84,8 +84,8 @@ public class Player {
         canISteal = true;
         visibleTreasures = new ArrayList();
         hiddenTreasures = new ArrayList();
-        //enemy
-        //pendingBadConsequence
+        pendingBadConsequence = null;
+        enemy = null;
     }
     public String getName(){
         return name;

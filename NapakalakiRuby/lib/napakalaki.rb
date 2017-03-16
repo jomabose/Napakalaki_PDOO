@@ -10,11 +10,13 @@ require 'singleton'
 class Napakalaki
   include Singleton
   
-  @currentPlayerIndex
-  @currentMonster
-  @currentPlayer
-  @players
-  @dealer
+  def initialize
+    @currentPlayerIndex
+    @currentMonster
+    @currentPlayer
+    @players
+    @dealer
+  end
 
   private
   def initPlayers(names)
@@ -65,7 +67,7 @@ class Napakalaki
   
   def endOfGame(result)
     #No se sabe
-  end
-  
+  end 
 end
+
 end
