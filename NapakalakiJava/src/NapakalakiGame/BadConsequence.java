@@ -83,9 +83,9 @@ public class BadConsequence {
     public BadConsequence(String t, boolean death){
         text = t;
         this.death = death;     
-        levels = Integer.MAX_VALUE;
-        nVisibleTreasures = Integer.MAX_VALUE;
-        nHiddenTreasures = Integer.MAX_VALUE;
+        levels = Player.MAXLEVEL;
+        nVisibleTreasures = BadConsequence.MAXTREASURES;
+        nHiddenTreasures = BadConsequence.MAXTREASURES;
         specificVisibleTreasures = new ArrayList();
         specificHiddenTreasures = new ArrayList();
     }

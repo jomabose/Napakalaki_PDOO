@@ -203,7 +203,7 @@ badConsequence =
   3,[TreasureKind::BOTHHANDS,TreasureKind::ONEHAND,TreasureKind::ONEHAND],Array.new)
 @@monsters<<Monster.new("Bicéfalo", 21, badConsequence, prize)
 
-puts PruebaNapakalaki.LoseTreasureSpecific(TreasureKind::HELMET)
+puts @@monsters
 
 end
 

@@ -4,6 +4,8 @@
 # and open the template in the editor.
 
 module NapakalakiGame
+  
+require_relative 'player'
 
 class BadConsequence
   
@@ -64,7 +66,7 @@ class BadConsequence
   end  
     
   def BadConsequence.newDeath (t)
-    BadConsequence.new(t, 9999999, 9999999, 9999999, Array.new, Array.new, true)
+    BadConsequence.new(t, Player::MAXLEVEL, BadConsequence::MAXTREASURES, BadConsequence::MAXTREASURES, Array.new, Array.new, true)
   end  
   
   def adjustToFitTreasureLists(v,h)
