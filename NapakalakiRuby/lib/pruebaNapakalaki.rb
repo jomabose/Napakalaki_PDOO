@@ -3,6 +3,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+module NapakalakiGame
+
 require_relative 'treasure_kind'
 require_relative 'prize'
 require_relative 'bad_consequence'
@@ -12,8 +14,6 @@ require_relative 'card_dealer'
 require_relative 'dice'
 
 class PruebaNapakalaki
-  
-include NapakalakiGame
 
  @@monsters = Array.new
 
@@ -204,5 +204,7 @@ badConsequence =
 @@monsters<<Monster.new("Bicéfalo", 21, badConsequence, prize)
 
 puts PruebaNapakalaki.LoseTreasureSpecific(TreasureKind::HELMET)
+
+end
 
 end
