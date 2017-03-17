@@ -9,6 +9,7 @@ require_relative 'bad_consequence'
 require_relative 'monster'
 require_relative 'player'
 require_relative 'card_dealer'
+require_relative 'dice'
 
 class PruebaNapakalaki
   
