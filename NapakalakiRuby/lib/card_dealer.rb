@@ -10,6 +10,8 @@ require 'singleton'
 class CardDealer
   include Singleton
   
+  public
+  
   def initialize
     @unusedMonsters = Array.new
     @usedMonsters = Array.new
@@ -52,7 +54,6 @@ class CardDealer
     @unusedTreasures << Treasure.new("Zapato deja-amigos",1,[TreasureKind::SHOE])
   end
   
-  private
   def initMonsterCardDeck
     #Monstruo1
     prize = Prize.new(2,1)
@@ -86,7 +87,7 @@ class CardDealer
     prize = Prize.new(3,1)
     badConsequence = 
     BadConsequence.newLevelNumberOfTreasures("Pierdes todos tus tesoros visibles",
-    0, 9999999, 0)
+    0, BadConsequence::MAXTREASURES, 0)
     @unusedmonsters << Monster.new("El gorrón en el umbral", 13, badConsequence, prize)
 
     #Monstruo6
@@ -184,15 +185,15 @@ class CardDealer
     @unusedmonsters << Monster.new("Bicéfalo", 21, badConsequence, prize)
   end
   
-  private
   def shuffleTreasures
     @unusedTreasures.shuffle!
   end
   
-  private
   def shuffleMonster
     @unusedMonster.shuffle!
   end
+  
+  public
   
   def nextTreasure
     #No se sabe

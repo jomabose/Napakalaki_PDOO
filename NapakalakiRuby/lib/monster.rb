@@ -6,6 +6,9 @@
 module NapakalakiGame
 
 class Monster
+  
+  public
+  
   def initialize(n, l, b, p)
     @name = n
     @combatLevel = l

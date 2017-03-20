@@ -10,6 +10,8 @@ require_relative 'player'
 class BadConsequence
   
   MAXTREASURES = 10
+    
+  public
   
   def initialize(t, l, nVisible, nHidden, v, h, death)
     @text = t
@@ -20,7 +22,7 @@ class BadConsequence
     @specificVisibleTreasures = v
     @specificHiddenTreasures = h
   end
-  
+
   def isEmpty
     vacio=false
     if @nVisibleTreasures==0 && @nHiddenTreasures==0 && @specificVisibleTreasures.empty? && @specificHiddenTreasures.empty?

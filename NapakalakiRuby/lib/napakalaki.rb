@@ -10,6 +10,8 @@ require 'singleton'
 class Napakalaki
   include Singleton
   
+  public
+  
   def initialize
     @currentPlayerIndex
     @currentMonster
@@ -23,15 +25,19 @@ class Napakalaki
     #No se sabe
   end
   
-  private
   def nextPlayer
     #No se sabe
   end
   
-  private 
   def nextTurnAllowed
     #No se sabe
   end
+  
+  def setEnemies
+    #No se sabe
+  end
+  
+  public
   
   def developCombat
     #No se sabe

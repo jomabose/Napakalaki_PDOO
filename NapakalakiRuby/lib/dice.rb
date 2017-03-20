@@ -13,6 +13,8 @@ class Dice
   def initialize
   end
 
+  public
+  
   def nextNumber
     return rand(6)+1
   end

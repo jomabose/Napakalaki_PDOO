@@ -14,7 +14,6 @@ class Player
     @dead = false
   end
   
-  private
   def getCombatLevel
     clevel = @level
     @visibleTreasures.each do |elemento|
@@ -23,7 +22,6 @@ class Player
     return clevel
   end
   
-  private
   def incrementLevels(l)
     @level += l
     if(@level > MAXLEVEL)
@@ -31,7 +29,6 @@ class Player
     end
   end
   
-  private
   def decrementLevels(l)
      @level -= l
     if(@level < 1)
@@ -39,27 +36,22 @@ class Player
     end
   end
   
-  private
   def setPendingBadConsequence(b)
     @pendingBadConsequence = b
   end
   
-  private
   def applyPrize(m)
     #No se sabe
   end
   
-  private
   def applyBadConsequence(m)
     #No se sabe
   end
   
-  private
   def canMakeTreasureVisible(t)
     #No se sabe
   end
   
-  private
   def howManyVisibleTreasures(tKind)
     cuantos=0;
     @visibleTreasures.each do |elemento|
@@ -70,19 +62,16 @@ class Player
     return cuantos
   end
   
-  private
   def dieIfNoTreasures
     if @visibleTreasures.empty? && @hiddenTreasures.empty?
       @dead = true
     end
   end
   
-  private
   def giveMeATreasure
     #No se sabe
   end
   
-  private
   def canYouGiveMeATreasure
     puedo=true;
     if @visibleTreasures.empty? && @hiddenTreasures.empty?
@@ -91,11 +80,12 @@ class Player
     return puedo;
   end
   
-  private
   def haveStolen
     @canISteal=false
   end
 
+  public
+  
   def initialize(name)
     @name = name
     @level = 1

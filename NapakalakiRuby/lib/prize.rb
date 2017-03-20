@@ -6,6 +6,9 @@
 module NapakalakiGame
 
 class Prize
+  
+  public
+  
   def initialize(t, l)
     @treasures = t
     @levels = l

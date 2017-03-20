@@ -6,6 +6,9 @@
 module NapakalakiGame
 
 class Treasure
+  
+  public
+  
   def initialize(n, bonus, t)
     @name = n
     @bonus = bonus

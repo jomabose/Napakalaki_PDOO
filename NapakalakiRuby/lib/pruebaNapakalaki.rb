@@ -12,6 +12,7 @@ require_relative 'monster'
 require_relative 'player'
 require_relative 'card_dealer'
 require_relative 'dice'
+require_relative 'treasure'
 
 class PruebaNapakalaki
 
@@ -203,7 +204,10 @@ badConsequence =
   3,[TreasureKind::BOTHHANDS,TreasureKind::ONEHAND,TreasureKind::ONEHAND],Array.new)
 @@monsters<<Monster.new("Bicéfalo", 21, badConsequence, prize)
 
-puts @@monsters
+a = BadConsequence.newDeath("JAJAJA")
+puts a.getLevels()
+
+b = Prize.new(Treasure.new("Bueno",7,[TreasureKind::HELMET]),1)
 
 end
 
